@@ -1,3 +1,5 @@
 # RestfulWebService
 VIKO EIF task <br />
-Made by following https://spring.io/guides/gs/intellij-idea/
+Following sources used: <br />
+https://spring.io/guides/gs/intellij-idea/ <br />
+https://spring.io/guides/gs/rest-service/ <br />
