@@ -1,0 +1,23 @@
+package lt.viko.eif.kkvmavva.restfulwebservice;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+class LoadDatabase {
+
+    private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+
+    @Bean
+    CommandLineRunner initDatabase(FishRepository repository) {
+
+        FishInfo fish = new FishInfo("Pike","a","b","c","d",
+                "e","f",0,"h");
+        return args -> {
+            log.info("Preloading " + repository.save(fish));
+        };
+    }
+}
