@@ -1,4 +1,4 @@
-package lt.viko.eif.kkvmavva.restfulwebservice;
+package lt.viko.eif.kkvmavva.Database;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

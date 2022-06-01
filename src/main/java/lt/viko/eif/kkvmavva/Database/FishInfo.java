@@ -1,4 +1,4 @@
-package lt.viko.eif.kkvmavva.restfulwebservice;
+package lt.viko.eif.kkvmavva.Database;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
