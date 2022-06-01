@@ -15,7 +15,7 @@ public class JSON {
     FishInfo fish = new FishInfo();
 
     public void AddFishDetails(){
-        fish.setName("abramas");
+        fish.setName("Lydeka");
         fish.setWaterType("b");
         fish.setLocation("c");
         fish.setConservationStatus("d");
@@ -33,7 +33,7 @@ public class JSON {
         fishDetails.put("name",fish.getName());
         fishDetails.put("waterType",fish.getWaterType());
         fishDetails.put("location",fish.getLocation());
-        fishDetails.put("securityStatus",fish.getConservationStatus());
+        fishDetails.put("conservationStatus",fish.getConservationStatus());
         fishDetails.put("bestToCatchSeason",fish.getBestToCatchSeason());
         fishDetails.put("fishBreedingSeason",fish.getFishBreedingSeason());
         fishDetails.put("illegalToCatchSeason",fish.getIllegalToCatchSeason());
@@ -50,15 +50,17 @@ public class JSON {
         File f = new File("Fish.json");
         if (f.exists()){
 
-        }
-        //Write JSON file
-        try (FileWriter file = new FileWriter("Fish.json")) {
-            //We can write any JSONArray or JSONObject instance to the file
-            file.write(fishList.toJSONString());
-            file.flush();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        }else{
+            //Write JSON file
+            try (FileWriter file = new FileWriter("Fish.json")) {
+                //We can write any JSONArray or JSONObject instance to the file
+                file.write(fishList.toJSONString());
+                file.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
