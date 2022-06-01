@@ -1,9 +1,14 @@
 package lt.viko.eif.kkvmavva.restfulwebservice;
 
 import org.springframework.boot.SpringApplication;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 // GUI
 // Launch this class to start and control the web service
@@ -17,6 +22,7 @@ public class GUI {
     private JLabel URILabel;
     private JLabel SpringStatusLabel;
     private JLabel ListeningLabel;
+    private String URIString;
     //endregion
 
     public GUI() {
@@ -31,6 +37,25 @@ public class GUI {
                 SpringStatusLabel.setText("Spring has started.");
                 ListeningLabel.setText("Listening on localhost:8080");
                 startSpringButton.setVisible(false);
+                sendARequestButton.setVisible(true);
+            }
+        });
+        //endregion
+        //region URI request button code
+        sendARequestButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                URIString = "http://localhost:8080/" + URITextField.getText();
+                if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                    try {
+                        Desktop.getDesktop().browse(new URI(URIString));
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (URISyntaxException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
             }
         });
         //endregion
