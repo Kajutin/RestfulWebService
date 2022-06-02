@@ -26,50 +26,7 @@ public class ResourceController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @GetMapping("/fish")
-    List<FishInfo> all() {
-        return repository.findAll();
-    }
 
-    @PostMapping("/fish")
-    FishInfo newFish(@RequestBody FishInfo newFish) {
-        return repository.save(newFish);
-    }
-
-    @GetMapping("/fish/{id}")
-    FishInfo one(@PathVariable Long id) {
-
-        return repository.findById(id)
-                .orElseThrow(() -> new FishNotFoundException(id));
-    }
-
-    @PutMapping("/fish/{id}")
-    FishInfo replaceFish(@RequestBody FishInfo newFish, @PathVariable Long id) {
-
-        return repository.findById(id)
-                .map(fish -> {
-                    fish.setName(newFish.getName());
-                    fish.setDescription(newFish.getDescription());
-                    return repository.save(fish);
-                })
-                .orElseGet(() -> {
-                    newFish.setId(id);
-                    return repository.save(newFish);
-                });
-    }
-
-    @DeleteMapping("/fish/{id}")
-    void deleteFish(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
-
-
-
-
-
-
-
-    /*
     @GetMapping("/fish")
     ResponseEntity<CollectionModel<EntityModel<FishInfo>>> findAll() {
 
@@ -111,6 +68,10 @@ public class ResourceController {
     @GetMapping("/fish/{id}")
     ResponseEntity<EntityModel<FishInfo>> findOne(@PathVariable long id) {
 
+        repository.findById(id)
+                .orElseThrow(() -> new FishNotFoundException(id));
+
+
         return repository.findById(id)
                 .map(fishInfo -> EntityModel.of(fishInfo,
                         linkTo(methodOn(ResourceController.class).findOne(fishInfo.getId())).withSelfRel()
@@ -151,9 +112,10 @@ public class ResourceController {
 
         return ResponseEntity.noContent().build();
     }
+
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
-    }*/
+    }
 
 }

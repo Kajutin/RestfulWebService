@@ -27,10 +27,10 @@ public class FishInfo {
     private String bestToCatchSeason;
     private String fishBreedingSeason;
     private String illegalToCatchSeason;
-    private Integer minimumLegalSizeToCatch;
+    private Integer minimumLegalSizeToCatchInCentimeters;
     private String description;
     public FishInfo(String name, String waterType, String location, String conservationStatus, String bestToCatchSeason,
-                    String fishBreedingSeason, String illegalToCatchSeason, Integer minimumLegalSizeToCatch,
+                    String fishBreedingSeason, String illegalToCatchSeason, Integer minimumLegalSizeToCatchInCentimeters,
                     String description) {
         this.name = name;
         this.waterType = waterType;
@@ -39,7 +39,7 @@ public class FishInfo {
         this.bestToCatchSeason = bestToCatchSeason;
         this.fishBreedingSeason = fishBreedingSeason;
         this.illegalToCatchSeason = illegalToCatchSeason;
-        this.minimumLegalSizeToCatch = minimumLegalSizeToCatch;
+        this.minimumLegalSizeToCatchInCentimeters = minimumLegalSizeToCatchInCentimeters;
         this.description = description;
     }
 }

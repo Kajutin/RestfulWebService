@@ -12,10 +12,19 @@ class DatabaseLoader {
 
     @Bean
     CommandLineRunner initDatabase(FishRepository repository) {
-        FishInfo fish = new FishInfo("Pike","a","b","c","d",
-                "e","f",0,"h");
+
         return args -> {
-            repository.save(fish);
+            repository.save(new FishInfo("European Pike","Freshwater","River, Lake",
+                    "Least Concern","Summer-Autumn",
+                    "February-April","February-April",50,
+                    "Olive green, shading from yellow to white along the belly. Have very sharp and" +
+                            " numerous teeth"));
+            repository.save(new FishInfo("European perch","Freshwater","Slow-flowing rivers," +
+                    " deep lakes, ponds",
+                    "Least Concern","Autumn",
+                    "March-April","-",0,
+                    "Greenish with red pelvic, anal and caudal fins. They have five to eight dark vertical" +
+                            " bars on their sides."));
         };
     }
 }
