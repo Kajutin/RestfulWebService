@@ -1,18 +1,24 @@
 package lt.viko.eif.kkvmavva.restfulwebservice;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
 
 /**
  *
  */
+@Data
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class FishInfo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String waterType;
@@ -23,10 +29,6 @@ public class FishInfo {
     private String illegalToCatchSeason;
     private Integer minimumLegalSizeToCatch;
     private String description;
-
-    public FishInfo() {
-    }
-
     public FishInfo(String name, String waterType, String location, String conservationStatus, String bestToCatchSeason,
                     String fishBreedingSeason, String illegalToCatchSeason, Integer minimumLegalSizeToCatch,
                     String description) {
@@ -40,5 +42,4 @@ public class FishInfo {
         this.minimumLegalSizeToCatch = minimumLegalSizeToCatch;
         this.description = description;
     }
-
 }
