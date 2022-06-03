@@ -22,6 +22,7 @@ public class GUI {
     private JLabel URILabel;
     private JLabel SpringStatusLabel;
     private JLabel ListeningLabel;
+    private JButton saveDatabaseButton;
     private String URIString;
     //endregion
 
@@ -38,6 +39,7 @@ public class GUI {
                 ListeningLabel.setText("Listening on localhost:8080");
                 startSpringButton.setVisible(false);
                 sendARequestButton.setVisible(true);
+                saveDatabaseButton.setVisible(true);
             }
         });
         //endregion
@@ -59,11 +61,17 @@ public class GUI {
             }
         });
         //endregion
+        //region Save Database Button
+        saveDatabaseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        //endregion
     }
 
-    // Form initialisation code
-    // Needed to activate the form and make it display when run
-    //region Form Init
+    //region Form Initialisation code
     public static void main(String[] args) {
         JFrame frame = new JFrame("App");
         frame.setContentPane(new GUI().panelMain);
