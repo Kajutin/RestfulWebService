@@ -16,6 +16,9 @@ import java.util.stream.StreamSupport;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+/**
+ *
+ */
 @RestController
 public class ResourceController {
 
@@ -27,6 +30,10 @@ public class ResourceController {
     private final AtomicLong counter = new AtomicLong();
 
 
+    /**
+     * Gets all fish
+     * @return
+     */
     @GetMapping("/fish")
     ResponseEntity<CollectionModel<EntityModel<FishInfo>>> findAll() {
 
@@ -43,6 +50,12 @@ public class ResourceController {
                 linkTo(methodOn(ResourceController.class).findAll()).withSelfRel()
                         .andAffordance(afford(methodOn(ResourceController.class).newFish(null)))));
     }
+
+    /**
+     * Creates new fish
+     * @param fishInfo
+     * @return
+     */
     @PostMapping("/fish")
     ResponseEntity<?> newFish(@RequestBody FishInfo fishInfo) {
 
@@ -65,6 +78,11 @@ public class ResourceController {
                 .orElse(ResponseEntity.badRequest().body("Unable to create " + fishInfo));
     }
 
+    /**
+     * Finds fish with id
+     * @param id
+     * @return
+     */
     @GetMapping("/fish/{id}")
     ResponseEntity<EntityModel<FishInfo>> findOne(@PathVariable long id) {
 
@@ -81,6 +99,13 @@ public class ResourceController {
                 .map(ResponseEntity::ok) //
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    /**
+     * Updates fish information
+     * @param fishInfo
+     * @param id
+     * @return
+     */
     @PutMapping("/fish/{id}")
     ResponseEntity<?> updateFish(@RequestBody FishInfo fishInfo, @PathVariable long id) {
 
@@ -105,6 +130,11 @@ public class ResourceController {
                 .orElse(ResponseEntity.badRequest().body("Unable to update " + fishToUpdate));
     }
 
+    /**
+     * Deletes fish
+     * @param id
+     * @return
+     */
     @DeleteMapping("/fish/{id}")
     ResponseEntity<?> deleteFish(@PathVariable long id) {
 
