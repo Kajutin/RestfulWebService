@@ -1,0 +1,54 @@
+[
+  {
+    "fish": {
+      "illegalToCatchSeason": "February-April",
+      "name": "European Pike",
+      "fishBreedingSeason": "February-April",
+      "description": "Olive green, shading from yellow to white along the belly. Have very sharp and numerous teeth",
+      "location": "River, Lake",
+      "conservationStatus":"Least Concern",
+      "bestToCatchSeason": "Summer-Autumn",
+      "minimumLegalSizeToCatchInCentimeters": 50,
+      "waterType": "Freshwater"
+    }
+  },
+  {
+    "fish": {
+      "illegalToCatchSeason": "-",
+      "name": "European perch",
+      "fishBreedingSeason": "March-April",
+      "description": "Greenish with red pelvic, anal and caudal fins. They have five to eight dark vertical bars on their sides.",
+      "location": "Slow-flowing rivers, deep lakes, ponds",
+      "conservationStatus":"Least Concern",
+      "bestToCatchSeason": "Autumn",
+      "minimumLegalSizeToCatchInCentimeters": 0,
+      "waterType": "Freshwater"
+    }
+  },
+  {
+    "fish": {
+      "illegalToCatchSeason": "October-December",
+      "name": "Atlantic salmon",
+      "fishBreedingSeason": "Autumn",
+      "description": "While young they have blue and red spots. At maturity, they take on a silver-blue sheen.Adults have black spots predominantly above the lateral line",
+      "location": "Baltic sea, Curonian Lagoon, in Nemunas from Baltic sea to Kaunas hydroelectric power plant",
+      "conservationStatus":"Vulnerable",
+      "bestToCatchSeason": "During breeding season in legal places",
+      "minimumLegalSizeToCatchInCentimeters": 65,
+      "waterType": "Freshwater, Saltwater"
+    }
+  },
+  {
+    "fish": {
+      "illegalToCatchSeason": "In the Lithuania red book",
+      "name": "Sea lamprey",
+      "fishBreedingSeason": "Spring",
+      "description": "Has an eel-like body without paired fins. Its mouth is jawless, round and sucker-like, and as wide or wider than the head; sharp teeth are arranged in many consecutive circular rows.",
+      "location": "Baltic sea, Curonian Lagoon,Nemunas delta",
+      "conservationStatus":"Least Concern - Endangered in Lithuania",
+      "bestToCatchSeason": "-",
+      "minimumLegalSizeToCatchInCentimeters": 0,
+      "waterType": "Saltwater"
+    }
+  }
+]

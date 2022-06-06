@@ -7,14 +7,19 @@ import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 
 /**
  *
@@ -26,9 +31,8 @@ public class ResourceController {
     ResourceController(FishRepository repository) {
         this.repository = repository;
     }
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
 
+    JSON json = new JSON();
 
     /**
      * Gets all fish
@@ -36,6 +40,8 @@ public class ResourceController {
      */
     @GetMapping("/fish")
     ResponseEntity<CollectionModel<EntityModel<FishInfo>>> findAll() {
+
+        //json.ReadJSONFile();
 
         List<EntityModel<FishInfo>> fishResources = StreamSupport.stream(repository.findAll().spliterator(), false)
                 .map(fishInfo -> EntityModel.of(fishInfo,
@@ -114,6 +120,7 @@ public class ResourceController {
 
         FishInfo updatedFish = repository.save(fishToUpdate);
 
+
         return EntityModel.of(updatedFish,
                         linkTo(methodOn(ResourceController.class).findOne(updatedFish.getId())).withSelfRel()
                                 .andAffordance(afford(methodOn(ResourceController.class).updateFish(null, updatedFish.getId())))
@@ -141,11 +148,6 @@ public class ResourceController {
         repository.deleteById(id);
 
         return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
 }

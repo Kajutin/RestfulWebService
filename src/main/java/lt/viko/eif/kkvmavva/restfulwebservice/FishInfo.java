@@ -15,7 +15,6 @@ import javax.persistence.Id;
  */
 @Data
 @Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class FishInfo {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +28,11 @@ public class FishInfo {
     private String illegalToCatchSeason;
     private Integer minimumLegalSizeToCatchInCentimeters;
     private String description;
+
+    public FishInfo(){
+
+    }
+
     public FishInfo(String name, String waterType, String location, String conservationStatus, String bestToCatchSeason,
                     String fishBreedingSeason, String illegalToCatchSeason, Integer minimumLegalSizeToCatchInCentimeters,
                     String description) {
