@@ -47,6 +47,46 @@ public class FishInfo {
         this.description = description;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWaterType(String waterType) {
+        this.waterType = waterType;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setConservationStatus(String conservationStatus) {
+        this.conservationStatus = conservationStatus;
+    }
+
+    public void setBestToCatchSeason(String bestToCatchSeason) {
+        this.bestToCatchSeason = bestToCatchSeason;
+    }
+
+    public void setFishBreedingSeason(String fishBreedingSeason) {
+        this.fishBreedingSeason = fishBreedingSeason;
+    }
+
+    public void setIllegalToCatchSeason(String illegalToCatchSeason) {
+        this.illegalToCatchSeason = illegalToCatchSeason;
+    }
+
+    public void setMinimumLegalSizeToCatchInCentimeters(Integer minimumLegalSizeToCatchInCentimeters) {
+        this.minimumLegalSizeToCatchInCentimeters = minimumLegalSizeToCatchInCentimeters;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }
