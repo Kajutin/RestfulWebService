@@ -46,4 +46,44 @@ public class FishInfo {
         this.minimumLegalSizeToCatchInCentimeters = minimumLegalSizeToCatchInCentimeters;
         this.description = description;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getWaterType() {
+        return waterType;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getConservationStatus() {
+        return conservationStatus;
+    }
+
+    public String getBestToCatchSeason() {
+        return bestToCatchSeason;
+    }
+
+    public String getFishBreedingSeason() {
+        return fishBreedingSeason;
+    }
+
+    public String getIllegalToCatchSeason() {
+        return illegalToCatchSeason;
+    }
+
+    public Integer getMinimumLegalSizeToCatchInCentimeters() {
+        return minimumLegalSizeToCatchInCentimeters;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
