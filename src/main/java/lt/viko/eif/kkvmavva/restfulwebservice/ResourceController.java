@@ -13,6 +13,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -41,8 +42,6 @@ public class ResourceController {
     @GetMapping("/fish")
     ResponseEntity<CollectionModel<EntityModel<FishInfo>>> findAll() {
 
-        //json.ReadJSONFile();
-
         List<EntityModel<FishInfo>> fishResources = StreamSupport.stream(repository.findAll().spliterator(), false)
                 .map(fishInfo -> EntityModel.of(fishInfo,
                         linkTo(methodOn(ResourceController.class).findOne(fishInfo.getId())).withSelfRel()
@@ -66,7 +65,7 @@ public class ResourceController {
     ResponseEntity<?> newFish(@RequestBody FishInfo fishInfo) {
 
         FishInfo savedFish = repository.save(fishInfo);
-
+        json.SaveToJson(savedFish);
         return EntityModel.of(savedFish,
                         linkTo(methodOn(ResourceController.class).findOne(savedFish.getId())).withSelfRel()
                                 .andAffordance(afford(methodOn(ResourceController.class).updateFish(null, savedFish.getId())))
@@ -118,6 +117,9 @@ public class ResourceController {
         FishInfo fishToUpdate = fishInfo;
         fishToUpdate.setId(id);
 
+        if(json.fishID.isEmpty())json.ReadJSONFile();
+        json.UpdateFish(fishInfo,id);
+
         FishInfo updatedFish = repository.save(fishToUpdate);
 
 
@@ -144,10 +146,14 @@ public class ResourceController {
      */
     @DeleteMapping("/fish/{id}")
     ResponseEntity<?> deleteFish(@PathVariable long id) {
-
+        repository.findById(id)
+                .orElseThrow(() -> new FishNotFoundException(id));
         repository.deleteById(id);
+
+        if(json.fishID.isEmpty())json.ReadJSONFile();
+
+        json.DeleteFish(id);
 
         return ResponseEntity.noContent().build();
     }
-
 }
