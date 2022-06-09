@@ -1,5 +1,6 @@
 package lt.viko.eif.kkvmavva.restfulwebservice;
 
+import lombok.AllArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
