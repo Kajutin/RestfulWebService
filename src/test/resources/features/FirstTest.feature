@@ -1,9 +1,9 @@
-Feature: fish feature
-
-  Scenario: A user gets the fish's
-    Given the following fish's
-      | name   | location |
-      | Salmon | River    |
-      | Carp   | Pond     |
-    #When the user requests all the fish's
-   # Then all the fish's are returned
+Feature: the message can be retrieved
+  Scenario: client makes call to POST /fish
+    When the client calls /fish
+    Then the client receives status code of 200
+    And the client receives server version fish
+  Scenario: client makes call to GET /fish
+    Given the client calls /fish
+    When the client receives status code of 200
+    Then the client receives server version fish

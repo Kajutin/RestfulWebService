@@ -1,5 +1,6 @@
 package lt.viko.eif.kkvmavva.restfulwebservice;
 
+import org.apache.log4j.BasicConfigurator;
 import org.json.simple.JSONObject;
 import org.junit.Test;
 import org.apache.log4j.Logger;

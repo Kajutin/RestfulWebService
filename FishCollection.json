@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "fish": {
+      "conservationStatus": "Least Concern - Endangered in Lithuania",
+      "illegalToCatchSeason": "In the Lithuania red book",
+      "name": "Nzn kas vyksta",
+      "fishBreedingSeason": "Spring",
+      "description": "Has an eel-like body without paired fins. Its mouth is jawless, round and sucker-like, and as wide or wider than the head; sharp teeth are arranged in many consecutive circular rows.",
+      "location": "Baltic sea, Curonian Lagoon,Nemunas delta",
+      "bestToCatchSeason": "-",
+      "minimumLegalSizeToCatchInCentimeters": 0,
+      "waterType": "Saltwater"
+    }
+  },
+  {
+    "fish": {
+      "conservationStatus": "Least Concern - Endangered in Lithuania",
+      "illegalToCatchSeason": "In the Lithuania red book",
+      "name": "Sea lamprey",
+      "fishBreedingSeason": "Spring",
+      "description": "Has an eel-like body without paired fins. Its mouth is jawless, round and sucker-like, and as wide or wider than the head; sharp teeth are arranged in many consecutive circular rows.",
+      "location": "Baltic sea, Curonian Lagoon,Nemunas delta",
+      "bestToCatchSeason": "-",
+      "minimumLegalSizeToCatchInCentimeters": 0,
+      "waterType": "Saltwater"
+    }
+  },
+  {
+    "fish": {
+      "conservationStatus": "Least Concern - Endangered in Lithuania",
+      "illegalToCatchSeason": "In the Lithuania red book",
+      "name": "RedTail",
+      "fishBreedingSeason": "Spring",
+      "description": "Has an eel-like body without paired fins. Its mouth is jawless, round and sucker-like, and as wide or wider than the head; sharp teeth are arranged in many consecutive circular rows.",
+      "location": "Baltic sea, Curonian Lagoon,Nemunas delta",
+      "bestToCatchSeason": "-",
+      "minimumLegalSizeToCatchInCentimeters": 0,
+      "waterType": "Saltwater"
+    }
+  }
+]
