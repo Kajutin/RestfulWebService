@@ -7,10 +7,16 @@ import org.apache.log4j.Logger;
 
 import static org.junit.Assert.*;
 
+/**
+ * Testing JSON class
+ */
 public class JSONTest {
 
     private Logger log = Logger.getLogger(this.getClass());
 
+    /**
+     * Testing saving to json
+     */
     @Test
     public void SaveToJson() {
         try {
@@ -28,6 +34,9 @@ public class JSONTest {
     }
 
 
+    /**
+     * Testing updating
+     */
     @Test
     public void UpdateFish() {
         try {
@@ -46,6 +55,9 @@ public class JSONTest {
         }
     }
 
+    /**
+     * Testing json file reading
+     */
     @Test
     public void ReadJSONFile() {
         try {
@@ -62,6 +74,9 @@ public class JSONTest {
         }
     }
 
+    /**
+     * Testing parsing
+     */
     @Test
     public void parseFish() {
         try {
@@ -83,6 +98,9 @@ public class JSONTest {
         }
     }
 
+    /**
+     * Testing deleting
+     */
     @Test
     public void DeleteFish() {
         try {

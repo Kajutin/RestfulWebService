@@ -1,6 +1,5 @@
 package lt.viko.eif.kkvmavva.restfulwebservice;
 
-import lombok.AllArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -8,23 +7,17 @@ import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-
 /**
- *
+ * User controller
  */
 @RestController
 public class ResourceController {
@@ -34,10 +27,8 @@ public class ResourceController {
         this.repository = repository;
     }
 
-    JSON json = new JSON();
-
     /**
-     * Gets all fish
+     * Finds all fish
      * @return
      */
     @GetMapping("/fish")
@@ -66,7 +57,7 @@ public class ResourceController {
     ResponseEntity<?> newFish(@RequestBody FishInfo fishInfo) {
 
         FishInfo savedFish = repository.save(fishInfo);
-        json.SaveToJson(savedFish);
+
         return EntityModel.of(savedFish,
                         linkTo(methodOn(ResourceController.class).findOne(savedFish.getId())).withSelfRel()
                                 .andAffordance(afford(methodOn(ResourceController.class).updateFish(null, savedFish.getId())))
@@ -85,16 +76,12 @@ public class ResourceController {
     }
 
     /**
-     * Finds fish with id
+     * Finds fish by id
      * @param id
      * @return
      */
     @GetMapping("/fish/{id}")
     ResponseEntity<EntityModel<FishInfo>> findOne(@PathVariable long id) {
-
-        repository.findById(id)
-                .orElseThrow(() -> new FishNotFoundException(id));
-
 
         return repository.findById(id)
                 .map(fishInfo -> EntityModel.of(fishInfo,
@@ -107,7 +94,7 @@ public class ResourceController {
     }
 
     /**
-     * Updates fish information
+     * Updates fish info by id
      * @param fishInfo
      * @param id
      * @return
@@ -118,11 +105,7 @@ public class ResourceController {
         FishInfo fishToUpdate = fishInfo;
         fishToUpdate.setId(id);
 
-        if(json.fishID.isEmpty())json.ReadJSONFile();
-        json.UpdateFish(fishInfo,id);
-
         FishInfo updatedFish = repository.save(fishToUpdate);
-
 
         return EntityModel.of(updatedFish,
                         linkTo(methodOn(ResourceController.class).findOne(updatedFish.getId())).withSelfRel()
@@ -141,19 +124,14 @@ public class ResourceController {
     }
 
     /**
-     * Deletes fish
+     * Deletes fish by id
      * @param id
      * @return
      */
     @DeleteMapping("/fish/{id}")
     ResponseEntity<?> deleteFish(@PathVariable long id) {
-        repository.findById(id)
-                .orElseThrow(() -> new FishNotFoundException(id));
+
         repository.deleteById(id);
-
-        if(json.fishID.isEmpty())json.ReadJSONFile();
-
-        json.DeleteFish(id);
 
         return ResponseEntity.noContent().build();
     }

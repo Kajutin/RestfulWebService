@@ -1,21 +1,22 @@
 package lt.viko.eif.kkvmavva.restfulwebservice;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
 /**
- *
+ *  Fish characteristics
  */
 @Data
 @Entity
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@Getter
 public class FishInfo {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -28,12 +29,6 @@ public class FishInfo {
     private String illegalToCatchSeason;
     private Integer minimumLegalSizeToCatchInCentimeters;
     private String description;
-
-
-    public FishInfo(){
-
-    }
-
     public FishInfo(String name, String waterType, String location, String conservationStatus, String bestToCatchSeason,
                     String fishBreedingSeason, String illegalToCatchSeason, Integer minimumLegalSizeToCatchInCentimeters,
                     String description) {
@@ -46,85 +41,5 @@ public class FishInfo {
         this.illegalToCatchSeason = illegalToCatchSeason;
         this.minimumLegalSizeToCatchInCentimeters = minimumLegalSizeToCatchInCentimeters;
         this.description = description;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setWaterType(String waterType) {
-        this.waterType = waterType;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setConservationStatus(String conservationStatus) {
-        this.conservationStatus = conservationStatus;
-    }
-
-    public void setBestToCatchSeason(String bestToCatchSeason) {
-        this.bestToCatchSeason = bestToCatchSeason;
-    }
-
-    public void setFishBreedingSeason(String fishBreedingSeason) {
-        this.fishBreedingSeason = fishBreedingSeason;
-    }
-
-    public void setIllegalToCatchSeason(String illegalToCatchSeason) {
-        this.illegalToCatchSeason = illegalToCatchSeason;
-    }
-
-    public void setMinimumLegalSizeToCatchInCentimeters(Integer minimumLegalSizeToCatchInCentimeters) {
-        this.minimumLegalSizeToCatchInCentimeters = minimumLegalSizeToCatchInCentimeters;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getWaterType() {
-        return waterType;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getConservationStatus() {
-        return conservationStatus;
-    }
-
-    public String getBestToCatchSeason() {
-        return bestToCatchSeason;
-    }
-
-    public String getFishBreedingSeason() {
-        return fishBreedingSeason;
-    }
-
-    public String getIllegalToCatchSeason() {
-        return illegalToCatchSeason;
-    }
-
-    public Integer getMinimumLegalSizeToCatchInCentimeters() {
-        return minimumLegalSizeToCatchInCentimeters;
-    }
-
-    public String getDescription() {
-        return description;
     }
 }
